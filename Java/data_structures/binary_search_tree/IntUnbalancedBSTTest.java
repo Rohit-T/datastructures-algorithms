@@ -101,4 +101,22 @@ public class IntUnbalancedBSTTest{
 		}
 		assertEquals("Find Max is not working", new Integer(max), randomNums.get(randomNums.size() - 1)); 
 	}
+
+	//To check if find height is working
+	@Test
+	public void findHeightTest() {
+		int height = bst.findHeight();
+		assertEquals("Find height didnt return -1 when null", -1, height);
+		int[] nums = {10, 8, 4, 18, 15, 25, 9, 6, 30, 33};
+		for(int i = 0; i < nums.length; i++) {
+			bst.insert(nums[i]);
+			assertTrue(nums[i] + " is absent after insert." , bst.search(nums[i]));
+			if(i == 0) {
+				height = bst.findHeight();
+				assertEquals("Find height didnt return 0 with just root", 0, height);
+			}
+		}
+		height = bst.findHeight();
+		assertEquals("Find height returned incorrect result", 4, height);
+	}
 }

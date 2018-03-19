@@ -127,4 +127,16 @@ public class IntUnbalancedBST{
 		}
 		return currentNode.value;
 	}
+
+	//Recursive
+	public int findHeight() {
+		return findHeight(root);
+	}
+
+	private int findHeight(IntBSTNode node) {
+		if(node == null) {
+			return -1;
+		}
+		return Math.max(findHeight(node.left), findHeight(node.right)) + 1;
+	}
 }
