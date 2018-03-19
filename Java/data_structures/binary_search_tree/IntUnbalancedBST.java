@@ -103,4 +103,28 @@ public class IntUnbalancedBST{
 	public IntBSTNode getRoot() {
 		return root;
 	}
+
+	//Iterative
+	public int findMin() throws ItemDoesNotExistsException{
+		if(root == null) {
+			throw new ItemDoesNotExistsException("Min does not exists");
+		}
+		IntBSTNode currentNode = root;
+		while(currentNode.left != null) {
+			currentNode = currentNode.left;
+		}
+		return currentNode.value;
+	}
+
+	//Iterative
+	public int findMax() throws ItemDoesNotExistsException{
+		if(root == null) {
+			throw new ItemDoesNotExistsException("Max does not exists");
+		}
+		IntBSTNode currentNode = root;
+		while(currentNode.right != null) {
+			currentNode = currentNode.right;
+		}
+		return currentNode.value;
+	}
 }
